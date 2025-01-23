@@ -323,3 +323,68 @@ const initWidgetConsultation = () => {
 if(widgetConsultation) {
 	initWidgetConsultation()
 }
+
+
+// SEARCH
+const searchContainer = document.querySelector('.search-container')
+const searchOpener = document.querySelector('#searchOpener')
+const searchMobileOpener = document.querySelector('#searchMobileOpener')
+const header = document.querySelector('.header')
+const MOCK_DATA = [
+	'Вакцинация Биокан DHPPi+L',
+	'Вакцинация отечественная от бешенства Рабикс',
+	'Вакцинация отечественная от бешенства Рабикс',
+	'Терапевт: первичный приём',
+	'Терапевт: повторный приём',
+	'Консультация врача терапевта без приема животного онлайн/оффлайн',
+	'Консультация врача терапевта без приема животного онлайн/оффлайн',
+]
+if(searchContainer) {
+	const searchContainerResults = document.querySelector('.search-container__results')
+	const searchContainerInput = document.querySelector('.search-container-input__field')
+	const searchContainerNotFound = document.querySelector('.search-container__not-found')
+	const searchContainerAllResults = document.querySelector('.search-container__result--all-results')
+	const searchContainerRow = document.querySelector('.search-container__row')
+	const searchContainerBack = document.querySelector('#searchBack')
+	searchOpener.addEventListener('click', () => {
+		searchContainer.classList.toggle('active')
+		header.classList.toggle('search-active')
+	})
+
+	searchMobileOpener.addEventListener('click', () => {
+		searchContainer.classList.toggle('active')
+		header.classList.toggle('search-active')
+		headerMenu.classList.remove('active')
+	})
+
+	searchContainerBack.addEventListener('click', () => {
+		searchContainer.classList.remove('active')
+		header.classList.remove('search-active')
+		headerMenu.classList.add('active')
+	})
+
+	searchContainerInput.addEventListener('input', (e) => {
+		const value = e.target.value
+		searchContainerNotFound.style.display = 'none'
+		searchContainerAllResults.style.display = 'none'
+		const filteredData = MOCK_DATA.filter((item) => item.toLowerCase().includes(value.toLowerCase()))
+		searchContainerResults.innerHTML = ''
+		if(filteredData.length === 0) {
+			searchContainerNotFound.style.display = 'block'
+			searchContainerResults.style.display = 'none'
+			searchContainerNotFound.textContent = `Нет результатов по запросу "${value}"`
+			return
+		}
+		searchContainerResults.style.display = 'flex'
+		filteredData.forEach((item) => {
+			const link = document.createElement('a')
+			link.href = '#'
+			link.textContent = item
+			link.classList.add('search-container__result')
+			searchContainerResults.appendChild(link)
+		})
+		if(searchContainerResults.clientWidth > searchContainerRow.clientWidth - 136) {
+			searchContainerAllResults.style.display = 'flex'
+		}
+	})
+}
