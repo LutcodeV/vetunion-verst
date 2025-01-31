@@ -388,3 +388,26 @@ if(searchContainer) {
 		}
 	})
 }
+
+
+// FORMS
+const forms = document.querySelectorAll('form')
+const formsMethods = {
+	formRegistrationToReception: (formData) => {
+		alert('formRegistrationToReception: sended')
+	}
+}
+if(forms.length > 0) {
+	forms.forEach((item) =>
+		item.addEventListener('submit', (e) => {
+			e.preventDefault()
+			const form = e.target
+			const formID = form.getAttribute('id')
+			const formData = new FormData(form)
+
+			if(formsMethods[formID]) {
+				formsMethods[formID](formData)
+			}
+		})
+	)
+}
