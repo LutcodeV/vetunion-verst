@@ -1763,6 +1763,7 @@ section {
 	&__buttons {
 		margin-top: 48px;
 		display: flex;
+		justify-content: space-between;
 	}
 	&__open {
 		width: 40px;
@@ -1780,13 +1781,15 @@ section {
 		}
 	}
 	&__button {
-		@extend .p3;
+		@extend .p2, .p2--semibold;
 		height: 56px;
 		display: flex;
 		align-items: center;
+		width: 100%;
 		gap: 8px;
 		white-space: nowrap;
 		padding: 16px 0;
+		max-width: calc(50% - 8px);
 		justify-content: center;
 	}
 	&.active {

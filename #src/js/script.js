@@ -331,13 +331,13 @@ const searchOpener = document.querySelector('#searchOpener')
 const searchMobileOpener = document.querySelector('#searchMobileOpener')
 const header = document.querySelector('.header')
 const MOCK_DATA = [
-	'Вакцинация Биокан DHPPi+L',
-	'Вакцинация отечественная от бешенства Рабикс',
-	'Вакцинация отечественная от бешенства Рабикс',
-	'Терапевт: первичный приём',
-	'Терапевт: повторный приём',
-	'Консультация врача терапевта без приема животного онлайн/оффлайн',
-	'Консультация врача терапевта без приема животного онлайн/оффлайн',
+	{title: 'Вакцинация Биокан DHPPi+L', link: '#'},
+	{title: 'Вакцинация отечественная от бешенства Рабикс', link: '#'},
+	{title: 'Вакцинация отечественная от бешенства Рабикс', link: '#'},
+	{title: 'Терапевт: первичный приём', link: '#'},
+	{title: 'Терапевт: повторный приём', link: '#'},
+	{title: 'Консультация врача терапевта без приема животного онлайн/оффлайн', link: '#'},
+	{title: 'Консультация врача терапевта без приема животного онлайн/оффлайн', link: '#'},
 ]
 if(searchContainer) {
 	const searchContainerResults = document.querySelector('.search-container__results')
@@ -367,7 +367,7 @@ if(searchContainer) {
 		const value = e.target.value
 		searchContainerNotFound.style.display = 'none'
 		searchContainerAllResults.style.display = 'none'
-		const filteredData = MOCK_DATA.filter((item) => item.toLowerCase().includes(value.toLowerCase()))
+		const filteredData = MOCK_DATA.filter((item) => item.title.toLowerCase().includes(value.toLowerCase()))
 		searchContainerResults.innerHTML = ''
 		if(filteredData.length === 0) {
 			searchContainerNotFound.style.display = 'block'
@@ -378,8 +378,8 @@ if(searchContainer) {
 		searchContainerResults.style.display = 'flex'
 		filteredData.forEach((item) => {
 			const link = document.createElement('a')
-			link.href = '#'
-			link.textContent = item
+			link.href = item.link
+			link.textContent = item.title
 			link.classList.add('search-container__result')
 			searchContainerResults.appendChild(link)
 		})

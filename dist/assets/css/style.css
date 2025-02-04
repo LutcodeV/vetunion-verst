@@ -215,6 +215,7 @@ h4 {
 .review__text,
 .faq-item__text,
 .faq__text,
+.address__button,
 .address__phone,
 .address__schedule,
 .instruction-left__text,
@@ -235,6 +236,7 @@ h4 {
 .search-container__back,
 .footer__link,
 .review__more,
+.address__button,
 .hero-slide__price,
 .hero__subtitle,
 .header-menu__link--small,
@@ -253,7 +255,6 @@ h4 {
 .modal-registration__text,
 .news-item__date,
 .news-item__text,
-.address__button,
 .instruction-right__tag,
 .doctor__address {
   font-size: 14px;
@@ -2008,6 +2009,9 @@ section + section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .address__open {
@@ -2043,9 +2047,11 @@ section + section {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: 100%;
   gap: 8px;
   white-space: nowrap;
   padding: 16px 0;
+  max-width: calc(50% - 8px);
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -4163,6 +4169,7 @@ section + section {
   .review__text,
   .faq-item__text,
   .faq__text,
+  .address__button,
   .address__phone,
   .address__schedule,
   .instruction-left__text,
