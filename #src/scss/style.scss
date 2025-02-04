@@ -132,7 +132,7 @@ input[type="search"]::-webkit-search-results-decoration {
   -webkit-appearance:none;
 }
 .button {
-	@extend .p2, .p2--semibold;
+	@extend .p1;
 	padding: 8px 16px 8px 16px;
 	border-radius: 99px;
 	display: flex;
@@ -1080,7 +1080,6 @@ section {
 		gap: 8px;
 	}
 	&__button {
-		@extend .caption;
 		height: 72px;
 	}
 	@include r(1024px) {
@@ -1767,6 +1766,8 @@ section {
 	}
 	&__open {
 		width: 40px;
+		min-width: 40px;
+		min-height: 40px;
 		height: 40px;
 		display: flex;
 		align-items: center;

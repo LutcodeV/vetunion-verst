@@ -192,7 +192,8 @@ h4 {
 .news-item__title,
 .history-item__text,
 .benefits-block-item__title,
-.header-menu__phone {
+.header-menu__phone,
+.button {
   font-size: 18px;
   font-weight: 600;
   line-height: 110%;
@@ -224,8 +225,7 @@ h4 {
 .hero__subtitle,
 .header-menu__link--small,
 .gateway-link__button,
-.gateway-link__subtitle,
-.button {
+.gateway-link__subtitle {
   font-size: 16px;
   line-height: 130%;
   letter-spacing: -0.32px;
@@ -238,8 +238,7 @@ h4 {
 .hero-slide__price,
 .hero__subtitle,
 .header-menu__link--small,
-.gateway-link__button,
-.button {
+.gateway-link__button {
   line-height: 120%;
   /* 19.2px */
   font-weight: 600;
@@ -278,7 +277,6 @@ h4 {
 .about-hero__menu-link,
 .footer__link--small,
 .review__rate span,
-.hero-video__button,
 .geo,
 .controls__link,
 .controls__button {
@@ -2014,6 +2012,8 @@ section + section {
 
 .address__open {
   width: 40px;
+  min-width: 40px;
+  min-height: 40px;
   height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4173,8 +4173,7 @@ section + section {
   .hero__subtitle,
   .header-menu__link--small,
   .gateway-link__button,
-  .gateway-link__subtitle,
-  .button {
+  .gateway-link__subtitle {
     font-size: 14px;
     line-height: 120%;
   }
