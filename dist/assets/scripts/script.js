@@ -404,6 +404,24 @@ const formsMethods = {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
 		}
+	},
+	formOrderHomeExit: (formData) => {
+		try {
+			closeAllModals()
+			openModal(document.querySelector('#successForm'))
+		} catch (e) {
+			closeAllModals()
+			openModal(document.querySelector('#errorForm'))
+		}
+	},
+	formOrderToReception: (formData) => {
+		try {
+			closeAllModals()
+			openModal(document.querySelector('#successForm'))
+		} catch (e) {
+			closeAllModals()
+			openModal(document.querySelector('#errorForm'))
+		}
 	}
 }
 if(forms.length > 0) {

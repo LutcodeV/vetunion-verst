@@ -7,7 +7,7 @@ block main
 				.hero-video
 					video.hero-video__video(src="assets/video/hero-video.mp4" playsinline autoplay muted loop)
 					.hero-video__row
-						a(href="#").hero-video__button.button Вызвать врача на дом
+						button(data-modal-open="orderHomeExit").hero-video__button.button Заказать выезд на дом
 						button(data-modal-open="registrationToReception").hero-video__button.button.button--light Записаться на прием
 				.hero__col
 					img.hero__logo(src="assets/img/logo.svg", alt="")
