@@ -209,10 +209,12 @@ const aboutBenefitsSwiper = new Swiper('.about-benefits-swiper', {
 // MODALS
 const modalContainer = document.querySelector('.modal-container')
 const modalContainerWrapper = document.querySelector('.modal-container__wrapper')
-const modalOpeners = document.querySelectorAll('[data-modal-open]')
+// const modalOpeners = document.querySelectorAll('[data-modal-open]')
+const modals = document.querySelectorAll('.modal')
 
-const openModal = () => {
+const openModal = (modal) => {
 	modalContainer.classList.add('active')
+	modal.classList.add('active')
 }
 const closeAllModals = () => {
 	document.querySelectorAll('.modal').forEach((item) => {
@@ -222,18 +224,19 @@ const closeAllModals = () => {
 }
 
 if(modalContainer) {
-	modalOpeners.forEach((item, index) => {
-		const modal = document.querySelector(`#${item.dataset.modalOpen}`)
-		const close = modal.querySelector('.modal__close')
+	modals.forEach((modal) => {
+		const openers = document.querySelectorAll(`[data-modal-open="${modal.id}"]`)
+		const closes = modal.querySelectorAll('.modal__close, [data-modal-close]')
 
-		close.addEventListener('click', () => {
-			closeAllModals()
+		closes.forEach((close) => {
+			close.addEventListener('click', () => {
+				closeAllModals()
+			})
 		})
-		item.addEventListener('click', () => {
+		openers.forEach((opener) => opener.addEventListener('click', () => {
 			closeAllModals()
-			openModal()
-			modal.classList.add('active')
-		})
+			openModal(modal)
+		}))
 	})
 }
 
@@ -394,7 +397,13 @@ if(searchContainer) {
 const forms = document.querySelectorAll('form')
 const formsMethods = {
 	formRegistrationToReception: (formData) => {
-		alert('formRegistrationToReception: sended')
+		try {
+			closeAllModals()
+			openModal(document.querySelector('#successForm'))
+		} catch (e) {
+			closeAllModals()
+			openModal(document.querySelector('#errorForm'))
+		}
 	}
 }
 if(forms.length > 0) {
