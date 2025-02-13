@@ -1381,6 +1381,15 @@ section + section {
 }
 
 .hero-slide__link {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3 !important;
+  height: 100%;
+}
+
+.hero-slide__arrow {
   min-width: 48px;
   min-height: 48px;
   width: 48px;
@@ -1408,7 +1417,7 @@ section + section {
   justify-content: center;
 }
 
-.hero-slide__link svg {
+.hero-slide__arrow svg {
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
   -webkit-transform: translate(-48px, 48px);
@@ -1437,6 +1446,29 @@ section + section {
 
 .hero-slide--pink {
   background: #FFD2D2;
+}
+
+.hero-slide:has(.hero-slide__link:hover) .hero-slide__img {
+  -webkit-transform: translateY(40px);
+  -ms-transform: translateY(40px);
+  transform: translateY(40px);
+}
+
+.hero-slide:has(.hero-slide__link:hover) .hero-slide__subtitle {
+  opacity: 1;
+}
+
+.hero-slide:has(.hero-slide__link:hover) .hero-slide__arrow {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.hero-slide:has(.hero-slide__link:hover) .hero-slide__arrow svg {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
 .benefits {
@@ -3697,12 +3729,6 @@ section + section {
   transform: translateX(-50%) translateY(-50%) scale(0.5);
 }
 
-.widget-consultation.play .widget-consultation__video-button {
-  -webkit-transform: translateY(74px);
-  -ms-transform: translateY(74px);
-  transform: translateY(74px);
-}
-
 .search-container {
   position: fixed;
   top: 88px;
@@ -4806,29 +4832,6 @@ section + section {
 
   .burger:hover span {
     background: var(--WHITE);
-  }
-
-  .hero-slide:hover .hero-slide__img {
-    -webkit-transform: translateY(40px);
-    -ms-transform: translateY(40px);
-    transform: translateY(40px);
-  }
-
-  .hero-slide:hover .hero-slide__subtitle {
-    opacity: 1;
-  }
-
-  .hero-slide:hover .hero-slide__link {
-    -webkit-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  .hero-slide:hover .hero-slide__link svg {
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
-    transform: translate(0, 0);
   }
 
   .services-link:hover {

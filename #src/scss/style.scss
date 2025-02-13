@@ -1138,6 +1138,14 @@ section {
 		transition: .3s ease;
 	}
 	&__link {
+		position: absolute !important;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 3 !important;
+		height: 100%;
+	}
+	&__arrow {
 		min-width: 48px;
 		min-height: 48px;
 		width: 48px;
@@ -1176,14 +1184,14 @@ section {
 	&--pink {
 		background: #FFD2D2;
 	}
-	@include hover {
+	&:has(.hero-slide__link:hover) {
 		.hero-slide__img {
 			transform: translateY(40px);
 		}
 		.hero-slide__subtitle {
 			opacity: 1;
 		}
-		.hero-slide__link {
+		.hero-slide__arrow {
 			transform: scale(1);
 			opacity: 1;
 			svg {
@@ -3250,9 +3258,6 @@ section {
 			&__video-button-play {
 				opacity: 0;
 				transform: translateX(-50%) translateY(-50%) scale(0.5);
-			}
-			&__video-button {
-				transform: translateY(74px);
 			}
 		}
 	}
