@@ -147,11 +147,12 @@ h1 {
 
 .h2,
 .search-container-input__field,
+.review__title,
 .address__title,
 .instruction-left__title,
 .benefits-block__title,
 h2 {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 110%;
   letter-spacing: -0.02em;
@@ -161,10 +162,9 @@ h2 {
 .media__title--inner,
 .responsibility__title,
 .history-item__title,
-.review__title,
 .faq-item__title,
 h3 {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 35.2px;
   letter-spacing: -0.02em;
@@ -191,10 +191,11 @@ h4 {
 .search-container__not-found,
 .news-item__title,
 .history-item__text,
+.review__text,
 .benefits-block-item__title,
 .header-menu__phone,
 .button {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: 110%;
   letter-spacing: -0.02em;
@@ -212,7 +213,6 @@ h4 {
 .footer__link,
 .review__more,
 .review__date,
-.review__text,
 .faq-item__text,
 .faq__text,
 .address__button,
@@ -227,7 +227,7 @@ h4 {
 .header-menu__link--small,
 .gateway-link__button,
 .gateway-link__subtitle {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 130%;
   letter-spacing: -0.32px;
 }
@@ -309,6 +309,7 @@ input[type=search]::-webkit-search-results-decoration {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -576,6 +577,10 @@ section + section {
   justify-content: center;
 }
 
+.logo__container .logo-svg {
+  display: none;
+}
+
 .controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -719,6 +724,20 @@ section + section {
 .controls--switch-mobile .controls__link--active {
   background: var(--DARK-GREY);
   color: var(--WHITE);
+}
+
+.controls--lab-version {
+  background: #B6F2F0;
+  border: 1px solid #A1E3E1;
+}
+
+.controls--lab-version .controls__link {
+  color: #253746;
+}
+
+.controls--lab-version .controls__link--active {
+  color: #fff;
+  background: #253746;
 }
 
 .header {
@@ -1037,7 +1056,8 @@ section + section {
   top: 0;
   height: 100%;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   left: 0;
   background: rgba(37, 55, 70, 0.2);
   -webkit-transition: 0.3s ease;
@@ -1159,6 +1179,10 @@ section + section {
 .swiper-arrow {
   width: 52px;
   height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  max-width: 52px;
+  max-height: 52px;
   background: #F6F6F6;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1641,6 +1665,7 @@ section + section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -2010,6 +2035,10 @@ section + section {
   padding-bottom: 16px;
 }
 
+.address__title {
+  font-size: 32px;
+}
+
 .address__content-wrapper {
   display: grid;
   grid-template-rows: 0fr;
@@ -2311,6 +2340,16 @@ section + section {
   width: 100%;
   height: auto;
   margin: auto 0;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-mask: url("/assets/img/review-mask.svg");
+  mask: url("/assets/img/review-mask.svg");
+  -webkit-mask-position: center center;
+  mask-position: center center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .review__title {
@@ -2506,7 +2545,7 @@ section + section {
   display: -ms-flexbox;
   display: flex;
   gap: 40px;
-  margin-top: 60px;
+  margin-top: auto;
 }
 
 .footer__copyright {
@@ -2538,6 +2577,10 @@ section + section {
 .footer__nvp-logo {
   width: 100%;
   max-width: 210px;
+}
+
+.footer__nvp-logo--mobile {
+  display: none;
 }
 
 .about-hero .container {
@@ -3094,7 +3137,8 @@ section + section {
 .modal-container {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -3848,6 +3892,13 @@ section + section {
   align-items: center;
 }
 
+.search-container-input svg {
+  min-width: 24px;
+  max-height: 24px;
+  min-height: 24px;
+  max-width: 24px;
+}
+
 .search-container-input__field {
   color: #fff;
 }
@@ -4026,6 +4077,16 @@ section + section {
     display: none;
   }
 
+  .footer__nvp-logo--mobile {
+    max-width: 106px;
+    display: block;
+  }
+
+  .footer__links {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
   .news-item {
     max-width: 100%;
   }
@@ -4157,12 +4218,23 @@ section + section {
 @media screen and (max-width: 768px) {
   .h2,
   .search-container-input__field,
+  .review__title,
   .address__title,
   .instruction-left__title,
   .benefits-block__title,
   h2 {
     font-size: 24px;
     line-height: 110%;
+  }
+
+  .h3,
+  .media__title--inner,
+  .responsibility__title,
+  .history-item__title,
+  .faq-item__title,
+  h3 {
+    font-size: 20px;
+    line-height: 120%;
   }
 
   .h4,
@@ -4192,7 +4264,6 @@ section + section {
   .footer__link,
   .review__more,
   .review__date,
-  .review__text,
   .faq-item__text,
   .faq__text,
   .address__button,
@@ -4241,16 +4312,93 @@ section + section {
     position: static;
   }
 
+  .logo {
+    display: none;
+  }
+
   .logo__container {
     height: 48px;
+  }
+
+  .logo__container .logo-svg {
+    display: block;
+  }
+
+  .header.active .logo {
+    display: block;
+  }
+
+  .header.active .logo-svg {
+    display: none;
   }
 
   .search__container {
     width: 505px;
   }
 
+  .hero__col {
+    width: calc(100% + 32px);
+    overflow: visible;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-video__video {
+    max-height: 292px;
+  }
+
+  .hero-video__button {
+    font-size: 12px;
+  }
+
+  .hero-swiper {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+    width: calc(100% + 32px);
+  }
+
+  .hero-slide {
+    height: 263px;
+    width: 285px;
+  }
+
+  .hero-slide__price {
+    margin-top: auto;
+  }
+
+  .hero-slide__subtitle {
+    font-size: 14px;
+    opacity: 1;
+  }
+
+  .hero-slide__img {
+    -webkit-transform: translate(30px, 80px);
+    -ms-transform: translate(30px, 80px);
+    transform: translate(30px, 80px);
+  }
+
+  .hero-slide__arrow {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .hero-slide__arrow svg {
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
   .benefits {
     padding-top: 80px;
+  }
+
+  .benefits__title {
+    font-size: 32px;
   }
 
   .benefits-block {
@@ -4283,6 +4431,18 @@ section + section {
   .benefits-block__mark:last-child {
     left: 40px;
     top: 50px;
+  }
+
+  .benefits-block-item {
+    padding: 16px;
+  }
+
+  .benefits-block-item__title {
+    font-size: 16px;
+  }
+
+  .benefits-block-item__text br {
+    display: none;
   }
 
   .benefits-block-item + .benefits-block-item {
@@ -4394,12 +4554,14 @@ section + section {
 
   .address__buttons {
     margin-top: 40px;
+    gap: 8px;
   }
 
   .address__button {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 0px;
     flex: 1 1 0;
+    font-size: 12px;
   }
 
   .faq {
@@ -4475,6 +4637,30 @@ section + section {
   .footer {
     margin-top: 80px;
     padding: 64px 0px;
+  }
+
+  .footer__links {
+    display: grid;
+    grid-template-columns: auto 106px;
+    gap: 24px;
+    grid-template-areas: "phone logo" "mail logo" "socials logo";
+  }
+
+  .footer__links > *:nth-child(1) {
+    grid-area: phone;
+  }
+
+  .footer__links > *:nth-child(2) {
+    grid-area: mail;
+    margin-top: -20px;
+  }
+
+  .footer__links > *:nth-child(3) {
+    grid-area: socials;
+  }
+
+  .footer__links > *:nth-child(4) {
+    grid-area: logo;
   }
 
   .about-hero__menu {
@@ -4639,6 +4825,13 @@ section + section {
     padding: 16px 16px 24px;
   }
 
+  .modal__close {
+    right: 0;
+    top: unset;
+    left: unset;
+    bottom: calc(100% + 1px);
+  }
+
   .widget {
     display: none;
   }
@@ -4647,6 +4840,7 @@ section + section {
 @media screen and (max-width: 630px) {
   .controls--contacts {
     padding: 0;
+    border: 0;
     background: transparent;
   }
 
@@ -4774,6 +4968,10 @@ section + section {
     padding: 24px 24px 40px;
     width: 100%;
     height: auto;
+  }
+
+  .header-menu__phone {
+    color: #fff;
   }
 }
 

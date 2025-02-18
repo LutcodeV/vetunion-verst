@@ -11,9 +11,19 @@ if(inputsTypeTel.length > 0) {
 }
 
 // HEADER
+const header = document.querySelector('.header')
 const headerBurger = document.querySelector('.burger')
 const headerMenu = document.querySelector('.header-menu')
 const headerMenuClose = document.querySelector('.header-menu__close')
+if(header) {
+	window.addEventListener('scroll', () => {
+		if(window.scrollY > 0) {
+			header.classList.add('active')
+		} else {
+			header.classList.remove('active')
+		}
+	})
+}
 if(headerBurger && headerMenu) {
 	headerBurger.addEventListener('click', () => {
 		headerMenu.classList.toggle('active')
@@ -332,7 +342,6 @@ if(widgetConsultation) {
 const searchContainer = document.querySelector('.search-container')
 const searchOpener = document.querySelector('#searchOpener')
 const searchMobileOpener = document.querySelector('#searchMobileOpener')
-const header = document.querySelector('.header')
 const MOCK_DATA = [
 	{title: 'Вакцинация Биокан DHPPi+L', link: '#'},
 	{title: 'Вакцинация отечественная от бешенства Рабикс', link: '#'},

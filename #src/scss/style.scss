@@ -57,7 +57,7 @@
 	letter-spacing: -0.96px;
 }
 .h2, h2 {
-	font-size: 40px;
+	font-size: 32px;
 	font-weight: 600;
 	line-height: 110%;
 	letter-spacing: -0.02em;
@@ -67,10 +67,14 @@
 	}
 }
 .h3, h3 {
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: 600;
 	line-height: 35.2px;
 	letter-spacing: -0.02em;
+	@include r(768px) {
+		font-size: 20px;
+		line-height: 120%;
+	}
 }
 .h4, h4 {
 	font-size: 24px;
@@ -83,13 +87,13 @@
 	}
 }
 .p1 {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 600;
 	line-height: 110%;
 	letter-spacing: -0.02em;
 }
 .p2 {
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 130%;
 	letter-spacing: -0.32px;
 	&--semibold {
@@ -136,6 +140,7 @@ input[type="search"]::-webkit-search-results-decoration {
 	padding: 8px 16px 8px 16px;
 	border-radius: 99px;
 	display: flex;
+	text-align: center;
 	align-items: center;
 	height: 56px;
 	justify-content: center;
@@ -395,10 +400,17 @@ section {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		.logo-svg {
+			display: none;
+		}
 	}
 	@include r(768px) {
+		display: none;
 		&__container {
 			height: 48px;
+			.logo-svg {
+				display: block;
+			}
 		}
 	}
 }
@@ -508,6 +520,17 @@ section {
 			}
 		}
 	}
+	&--lab-version {
+		background: #B6F2F0;
+		border: 1px solid #A1E3E1;
+		.controls__link {
+			color: #253746;
+			&--active {
+				color: #fff;
+				background: #253746;
+			}
+		}
+	}
 	@include r(860px) {
 		&--switch-pc {
 			display: none;
@@ -519,6 +542,7 @@ section {
 	@include r(630px) {
 		&--contacts {
 			padding: 0;
+			border: 0;
 			background: transparent;
 			.controls__link--with-inner {
 				display: none;
@@ -569,6 +593,16 @@ section {
 			}
 			svg:last-child {
 				display: flex;
+			}
+		}
+	}
+	@include r(768px) {
+		&.active {
+			.logo {
+				display: block;
+			}
+			.logo-svg {
+				display: none;
 			}
 		}
 	}
@@ -791,7 +825,8 @@ section {
 	top: 0;
 	height: 100%;
 	width: 100vw;
-	height: 100vh;
+	height: 100dvh;
+	max-height: 100dvh;
 	left: 0;
 	background: #25374633;
 	transition: .3s ease;
@@ -921,7 +956,6 @@ section {
 				margin-top: 0;
 			}
 		}
-
 	}
 	@include r(425px) {
 		padding-top: 64px;
@@ -948,6 +982,9 @@ section {
 				height: auto;
 			}
 		}
+		&__phone {
+			color: #fff;
+		}
 	}
 }
 
@@ -955,6 +992,10 @@ section {
 .swiper-arrow {
 	width: 52px;
 	height: 52px;
+	min-width: 52px;
+	min-height: 52px;
+	max-width: 52px;
+	max-height: 52px;
 	background: #F6F6F6;
 	display: flex;
 	align-items: center;
@@ -1059,6 +1100,16 @@ section {
 			}
 		}
 	}
+	@include r(768px) {
+		&__col {
+			width: calc(100% + 32px);
+			overflow: visible;
+			margin-left: -16px;
+			margin-right: -16px;
+			padding-left: 16px;
+			padding-right: 16px;
+		}
+	}
 }
 .hero-video {
 	width: var(--COL-6);
@@ -1093,6 +1144,14 @@ section {
 			height: 44px;
 		}
 	}
+	@include r(768px) {
+		&__video {
+			max-height: 292px;
+		}
+		&__button {
+			font-size: 12px;
+		}
+	}
 }
 .hero-swiper {
 	// overflow: visible;
@@ -1100,6 +1159,12 @@ section {
 	// margin-right: auto;
 	// margin-left: 0;
 	width: 100%;
+	@include r(768px) {
+		margin-left: -16px;
+		margin-right: -16px;
+		padding-left: 16px;
+		width: calc(100% + 32px);
+	}
 }
 .hero-slide {
 	position: relative;
@@ -1199,6 +1264,27 @@ section {
 			}
 		}
 	}
+	@include r(768px) {
+		height: 263px;
+		width: 285px;
+		&__price {
+			margin-top: auto;
+		}
+		&__subtitle {
+			font-size: 14px;
+			opacity: 1;
+		}
+		&__img {
+			transform: translate(30px,80px);
+		}
+		&__arrow {
+			transform: scale(1);
+			opacity: 1;
+			svg {
+				transform: translate(0, 0);
+			}
+		}
+	}
 }
 
 // BENEFITS
@@ -1225,6 +1311,9 @@ section {
 	}
 	@include r(768px) {
 		padding-top: 80px;
+		&__title {
+			font-size: 32px;
+		}
 	}
 }
 .benefits-block {
@@ -1338,6 +1427,15 @@ section {
 		margin-top: 16px;
 	}
 	@include r(768px) {
+		padding: 16px;
+		&__title {
+			font-size: 16px;
+		}
+		&__text {
+			br {
+				display: none;
+			}
+		}
 		&+& {
 			margin-top: 8px;
 		}
@@ -1374,6 +1472,7 @@ section {
 .services-link {
 	@extend .h1;
 	display: flex;
+	text-align: center;
 	align-items: center;
 	justify-content: space-between;
 	padding: 32px;
@@ -1747,6 +1846,7 @@ section {
 	}
 	&__title {
 		@extend .h2;
+		font-size: 32px;
 	}
 	&__content-wrapper {
 		display: grid;
@@ -1817,9 +1917,11 @@ section {
 		border-radius: 24px;
 		&__buttons {
 			margin-top: 40px;
+			gap: 8px;
 		}
 		&__button {
 			flex: 1 1 0;
+			font-size: 12px;
 		}
 	}
 }
@@ -2008,13 +2110,18 @@ section {
 		width: 100%;
 		height: auto;
 		margin: auto 0;
+		object-fit: cover;
+		mask: url('/assets/img/review-mask.svg');
+		mask-position: center center;
+		mask-repeat: no-repeat;
+		mask-size: contain;
 	}
 	&__title {
-		@extend .h3;
+		@extend .h2;
 		margin-top: 24px;
 	}
 	&__text {
-		@extend .p2;
+		@extend .p1;
 		margin-top: 24px;
 		-webkit-line-clamp: 10;
 		-webkit-box-orient: vertical;
@@ -2161,7 +2268,7 @@ section {
 	&__footer {
 		display: flex;
 		gap: 40px;
-		margin-top: 60px;
+		margin-top: auto;
 	}
 	&__copyright {
 		@extend .p2;
@@ -2184,10 +2291,20 @@ section {
 	&__nvp-logo {
 		width: 100%;
 		max-width: 210px;
+		&--mobile {
+			display: none;
+		}
 	}
 	@include r(1260px) {
 		&__nvp-logo {
 			display: none;
+			&--mobile {
+				max-width: 106px;
+				display: block;
+			}
+		}
+		&__links {
+			flex-wrap: wrap;
 		}
 	}
 	@include r(1024px) {
@@ -2214,6 +2331,25 @@ section {
 	@include r(768px) {
 		margin-top: 80px;
 		padding: 64px 0px;
+		&__links {
+			display: grid;
+			grid-template-columns: auto 106px;
+			gap: 24px;
+			grid-template-areas: 'phone logo' 'mail logo' 'socials logo';
+			& > *:nth-child(1) {
+				grid-area: phone;
+			}
+			& > *:nth-child(2) {
+				grid-area: mail;
+				margin-top: -20px;
+			}
+			& > *:nth-child(3) {
+				grid-area: socials;
+			}
+			& > *:nth-child(4) {
+				grid-area: logo;
+			}
+		}
 	}
 }
 
@@ -2809,7 +2945,8 @@ section {
 .modal-container {
 	position: fixed;
 	width: 100vw;
-	height: 100vh;
+	height: 100dvh;
+	max-height: 100dvh;
 	overflow: hidden;
 	top: 0;
 	left: 0;
@@ -2852,6 +2989,14 @@ section {
 	&.active {
 		display: flex;
 		animation: modalAnimation .3s ease;
+	}
+	@include r(768px) {
+		&__close {
+			right: 0;
+			top: unset;
+			left: unset;
+			bottom: calc(100% + 1px);
+		}
 	}
 }
 .modal-review {
@@ -3381,6 +3526,12 @@ section {
 	display: flex;
 	gap: 16px;
 	align-items: center;
+	svg {
+		min-width: 24px;
+		max-height: 24px;
+		min-height: 24px;
+		max-width: 24px;
+	}
 	&__field {
 		@extend .h2;
 		color: #fff;
