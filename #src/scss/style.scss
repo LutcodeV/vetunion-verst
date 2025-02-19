@@ -1443,6 +1443,19 @@ section {
 }
 .benefits-swiper {
 	width: 100%;
+	@include r(768px) {
+		height: 256px;
+		max-height: 256px;
+		min-height: 256px;
+		.swiper-wrapper {
+			height: 100%;
+		}
+		.benefits-block {
+			&__img {
+				height: 100%;
+			}
+		}
+	}
 }
 
 // SERVICES

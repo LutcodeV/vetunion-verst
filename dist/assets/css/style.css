@@ -4449,6 +4449,20 @@ section + section {
     margin-top: 8px;
   }
 
+  .benefits-swiper {
+    height: 256px;
+    max-height: 256px;
+    min-height: 256px;
+  }
+
+  .benefits-swiper .swiper-wrapper {
+    height: 100%;
+  }
+
+  .benefits-swiper .benefits-block__img {
+    height: 100%;
+  }
+
   .services {
     margin-top: 80px;
   }
