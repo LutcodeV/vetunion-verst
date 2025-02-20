@@ -4997,7 +4997,7 @@ section + section {
   }
 
   .search-container {
-    max-width: 324px;
+    max-width: calc(100% - 32px);
     top: 16px;
     border-radius: 24px;
     z-index: 101;
