@@ -271,8 +271,8 @@ if(moreReview) {
 				<p class="modal-review__text">${text}</p>
 			`
 			closeAllModals()
-			openModal()
 			modalContainerWrapper.appendChild(modalReview)
+			openModal(modalReview)
 			const closeButton = modalContainerWrapper.querySelector('.modal-review .modal__close')
 			closeButton.addEventListener('click', () => {
 				modalReview.remove()
@@ -281,6 +281,37 @@ if(moreReview) {
 		})
 	})
 }
+
+// VIDEO-REVIEW
+const videoReview = document.querySelectorAll('[data-review-video]')
+if(videoReview) {
+	videoReview.forEach((item, index) => {
+		const videoSrc = item.dataset.reviewVideo
+
+		item.addEventListener('click', () => {
+			const modalReview = document.createElement('div')
+			modalReview.classList = 'modal-review-video active modal'
+			modalReview.innerHTML = `
+				<button class="modal__close">
+					<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M1.5858 12.4998C1.4699 12.4999 1.35659 12.4655 1.26022 12.4011C1.16384 12.3367 1.08872 12.2452 1.04436 12.1381C1.00001 12.0311 0.988403 11.9132 1.01102 11.7996C1.03364 11.6859 1.08946 11.5815 1.17143 11.4995L11.9996 0.671396C12.1095 0.561497 12.2585 0.499756 12.4139 0.499756C12.5693 0.499756 12.7184 0.561497 12.8283 0.671396C12.9382 0.781295 12.9999 0.93035 12.9999 1.08577C12.9999 1.24119 12.9382 1.39025 12.8283 1.50015L2.00018 12.3283C1.94581 12.3828 1.88122 12.426 1.81011 12.4554C1.739 12.4848 1.66277 12.4999 1.5858 12.4998Z" fill="#253746" stroke="#253746" stroke-width="0.5"/>
+						<path d="M12.4139 12.4998C12.3369 12.4999 12.2607 12.4848 12.1896 12.4554C12.1185 12.426 12.0539 12.3828 11.9995 12.3283L1.1714 1.50015C1.0615 1.39025 0.999756 1.24119 0.999756 1.08577C0.999756 0.93035 1.0615 0.781295 1.1714 0.671396C1.28129 0.561497 1.43035 0.499756 1.58577 0.499756C1.74119 0.499756 1.89025 0.561497 2.00015 0.671396L12.8283 11.4995C12.9102 11.5815 12.9661 11.6859 12.9887 11.7996C13.0113 11.9132 12.9997 12.0311 12.9553 12.1381C12.911 12.2452 12.8359 12.3367 12.7395 12.4011C12.6431 12.4655 12.5298 12.4999 12.4139 12.4998Z" fill="#253746" stroke="#253746" stroke-width="0.5"/>
+					</svg>
+				</button>
+				<video controls class="modal-review-video__video" src="${videoSrc}"/>
+			`
+			closeAllModals()
+			modalContainerWrapper.appendChild(modalReview)
+			openModal(modalReview)
+			const closeButton = modalContainerWrapper.querySelector('.modal-review-video .modal__close')
+			closeButton.addEventListener('click', () => {
+				modalReview.remove()
+				closeAllModals()
+			})
+		})
+	})
+}
+
 
 // FILE
 const fileLabels = document.querySelectorAll('.file')

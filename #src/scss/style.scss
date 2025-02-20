@@ -2118,10 +2118,36 @@ section {
 			height: 12px;
 		}
 	}
+	&__img-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		max-height: 250px;
+		margin: auto 0;
+		width: 100%;
+		position: relative;
+	}
+	&__video-button {
+		position: absolute;
+		bottom: 55px;
+		z-index: 1;
+		left: 50%;
+		transform: translate(-50%, 0);
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: #253746;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 40px;
+		min-height: 40px;
+	}
 	&__img {
 		display: block;
 		width: 100%;
-		height: auto;
+		max-height: 250px;
+		width: 100%;
 		margin: auto 0;
 		object-fit: cover;
 		mask: url('/assets/img/review-mask.svg');
@@ -2179,6 +2205,16 @@ section {
 				max-width: 0;
 			}
 		}
+	}
+}
+.modal-review-video {
+	max-width: 800px !important;
+	padding: 16px !important;
+	width: 100%;
+	&__video {
+		width: 100%;
+		border-radius: 16px;
+		overflow: hidden;
 	}
 }
 
