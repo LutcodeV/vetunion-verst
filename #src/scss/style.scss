@@ -411,6 +411,11 @@ section {
 			.logo-svg {
 				display: block;
 			}
+			&--other {
+				.logo {
+					display: block;
+				}
+			}
 		}
 	}
 }
@@ -2511,6 +2516,16 @@ section {
 		&__menu {
 			display: none;
 		}
+		&__title {
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 26.4px;
+			letter-spacing: -2%;
+		}
+		&__swiper {
+			height: 534px;
+			margin-top: 40px;
+		}
 		.swiper-slide {
 			position: relative;
 			.about-hero__menu-link {
@@ -2558,6 +2573,12 @@ section {
 			flex-direction: column;
 			gap: 40px;
 		}
+		&__title {
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 26.4px;
+			letter-spacing: -2%;
+		}
 	}
 }
 .about-benefits-left {
@@ -2570,22 +2591,17 @@ section {
 .about-benefits-right {
 	max-width: var(--COL-6);
 	flex: 1 1 0;
-	.swiper-wrapper {
-		display: grid;
-		grid-template-columns: calc(50% - 12px) calc(50% - 12px);
-		max-width: 100%;
-		width: 100%;
-		gap: 24px;
-	}
+	display: grid;
+	grid-template-columns: calc(50% - 12px) calc(50% - 12px);
+	max-width: 100%;
+	width: 100%;
+	gap: 24px;
 	@include r(1024px) {
 		max-width: 100%;
 	}
 	@include r(768px) {
-		.swiper-wrapper {
-			display: flex;
-			gap: 0;
-			max-width: auto;
-		}
+		grid-template-columns: 1fr;
+		gap: 8px;
 	}
 }
 .about-benefit {
@@ -2598,6 +2614,7 @@ section {
 	transition: .3s ease;
 	max-width: 100%;
 	height: auto;
+	gap: 16px;
 	margin: 0 !important;
 	&__title {
 		@extend .h4;
@@ -2642,7 +2659,6 @@ section {
 		}
 	}
 	@include r(768px) {
-		margin-right: 24px !important;
 		&__text {
 			margin-top: auto;
 		}
@@ -2783,16 +2799,33 @@ section {
 		}
 	}
 	&__link-button {
-		width: 88px;
-		height: 88px;
+		width: 64px;
+		height: 64px;
+		margin-top: auto;
+		margin-bottom: auto;
 		border-radius: 50%;
-		background: var(--DARK-GREY);
+		background: #fff;
 		align-items: center;
 		margin-left: -16px;
 		justify-content: center;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		transition: .3s ease;
+		svg {
+			transition: .3s ease;
+			path {
+				transition: .3s ease;
+			}
+		}
+		@include hover {
+			svg {
+				transform: rotate(45deg);
+			}
+			path {
+				fill: #DD9FD4;
+			}
+		}
 	}
 	@include r(768px) {
 		&__col {
@@ -2820,8 +2853,8 @@ section {
 			height: 64px;
 		}
 		&__link-button {
-			width: 64px;
-			height: 64px;
+			width: 42px;
+			height: 42px;
 		}
 	}
 }
@@ -2982,6 +3015,9 @@ section {
 	&__date {
 		@extend .p3;
 		margin-top: auto;
+		display: flex;
+		align-items: center;
+		gap: 8px;
 		opacity: 0.4;
 	}
 	&__link {

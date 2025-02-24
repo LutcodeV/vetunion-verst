@@ -2789,9 +2789,6 @@ section + section {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 0px;
   flex: 1 1 0;
-}
-
-.about-benefits-right .swiper-wrapper {
   display: grid;
   grid-template-columns: calc(50% - 12px) calc(50% - 12px);
   max-width: 100%;
@@ -2815,6 +2812,7 @@ section + section {
   transition: 0.3s ease;
   max-width: 100%;
   height: auto;
+  gap: 16px;
   margin: 0 !important;
 }
 
@@ -3000,10 +2998,12 @@ section + section {
 }
 
 .responsibility__link-button {
-  width: 88px;
-  height: 88px;
+  width: 64px;
+  height: 64px;
+  margin-top: auto;
+  margin-bottom: auto;
   border-radius: 50%;
-  background: var(--DARK-GREY);
+  background: #fff;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -3016,6 +3016,18 @@ section + section {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.responsibility__link-button svg {
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.responsibility__link-button svg path {
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .media__title--inner {
@@ -3188,6 +3200,13 @@ section + section {
 
 .news-item__date {
   margin-top: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 8px;
   opacity: 0.4;
 }
 
@@ -4270,6 +4289,13 @@ section + section {
     gap: 40px;
   }
 
+  .about-benefits__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26.4px;
+    letter-spacing: -2%;
+  }
+
   .about-benefits-left {
     max-width: 100%;
   }
@@ -4406,6 +4432,10 @@ section + section {
   }
 
   .logo__container .logo-svg {
+    display: block;
+  }
+
+  .logo__container--other .logo {
     display: block;
   }
 
@@ -4789,6 +4819,18 @@ section + section {
     display: none;
   }
 
+  .about-hero__title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26.4px;
+    letter-spacing: -2%;
+  }
+
+  .about-hero__swiper {
+    height: 534px;
+    margin-top: 40px;
+  }
+
   .about-hero .swiper-slide {
     position: relative;
   }
@@ -4814,16 +4856,9 @@ section + section {
     opacity: 0.5 !important;
   }
 
-  .about-benefits-right .swiper-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    gap: 0;
-    max-width: auto;
-  }
-
-  .about-benefit {
-    margin-right: 24px !important;
+  .about-benefits-right {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .about-benefit__text {
@@ -4902,8 +4937,8 @@ section + section {
   }
 
   .responsibility__link-button {
-    width: 64px;
-    height: 64px;
+    width: 42px;
+    height: 42px;
   }
 
   .media__col {
@@ -5180,6 +5215,16 @@ section + section {
   .services-link:last-child:hover {
     color: var(--WHITE);
     background: var(--DARK-GREY);
+  }
+
+  .responsibility__link-button:hover svg {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .responsibility__link-button:hover path {
+    fill: #DD9FD4;
   }
 
   .news-item__link:hover {
