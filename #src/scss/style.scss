@@ -1589,6 +1589,19 @@ section {
 		height: 56px;
 		max-width: 227px;
 	}
+	&--about {
+		.doctors {
+			&__button {
+				margin-left: auto;
+				&--mobile {
+					display: none;
+				}
+			}
+		}
+		.swiper-arrow {
+			display: none !important;
+		}
+	}
 	@include r(1440px) {
 		&__row {
 			gap: 16px;
@@ -1610,6 +1623,23 @@ section {
 			order: 1;
 			margin: 32px auto 0;
 			max-width: 400px;
+		}
+		&--about {
+			.swiper-arrow {
+				display: flex !important;
+				margin-left: 8px;
+				&:not(:last-child) {
+					margin-left: auto;
+				}
+			}
+			.doctors {
+				&__button {
+					display: none;
+					&--mobile {
+						display: flex;
+					}
+				}
+			}
 		}
 	}
 }
@@ -2260,6 +2290,7 @@ section {
 		width: 100%;
 		border-radius: 16px;
 		overflow: hidden;
+		min-height: 400px;
 	}
 }
 

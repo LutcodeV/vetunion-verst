@@ -95,11 +95,12 @@ block main
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M4.35359 0.146484L13.3536 0.146484C13.9059 0.146484 14.3536 0.5942 14.3536 1.14648V10.1465C14.3536 10.6988 13.9059 11.1465 13.3536 11.1465C12.8013 11.1465 12.3536 10.6988 12.3536 10.1465V3.5607L2.0607 13.8536L0.646484 12.4394L10.9394 2.14648L4.35359 2.14648C3.80131 2.14648 3.35359 1.69877 3.35359 1.14648C3.35359 0.5942 3.80131 0.146484 4.35359 0.146484Z" fill="#253746"/>
 						</svg>
 
-	section.doctors
+	section.doctors.doctors--about
 		.container
 			.doctors__header
 				.doctors__header-inner
 					p.doctors__title Специалисты
+					a.doctors__button.button(href="#") Все специалисты
 					.swiper-arrow#doctors-swiper-arrow-prev
 						<svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M0.351557 6.77807C-0.0389669 7.16859 -0.0389666 7.80176 0.351557 8.19228L6.71552 14.5562C7.10604 14.9468 7.73921 14.9468 8.12973 14.5562C8.52026 14.1657 8.52026 13.5326 8.12973 13.142L2.47288 7.48518L8.12973 1.82832C8.52026 1.4378 8.52026 0.804634 8.12973 0.414109C7.73921 0.0235853 7.10604 0.0235846 6.71552 0.414109L0.351557 6.77807ZM18.0292 6.48518L1.05866 6.48518L1.05866 8.48518L18.0292 8.48518L18.0292 6.48518Z" fill="#253746"/>
@@ -183,6 +184,8 @@ block main
 								</svg>
 								| Мневники
 				.swiper-pagination.swiper-pagination--doctors
+			a.doctors__button.doctors__button--mobile.button(href="#") Все специалисты
+
 	section.media
 		.container
 			p.media__title СМИ пишут о нас

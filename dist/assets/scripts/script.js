@@ -283,10 +283,11 @@ if(moreReview) {
 }
 
 // VIDEO-REVIEW
-const videoReview = document.querySelectorAll('[data-review-video]')
+const videoReview = document.querySelectorAll('[data-review-video],[data-review-video-vk]')
 if(videoReview) {
 	videoReview.forEach((item, index) => {
 		const videoSrc = item.dataset.reviewVideo
+		const videoVKSrc = item.dataset.reviewVideoVk
 
 		item.addEventListener('click', () => {
 			const modalReview = document.createElement('div')
@@ -298,7 +299,7 @@ if(videoReview) {
 						<path d="M12.4139 12.4998C12.3369 12.4999 12.2607 12.4848 12.1896 12.4554C12.1185 12.426 12.0539 12.3828 11.9995 12.3283L1.1714 1.50015C1.0615 1.39025 0.999756 1.24119 0.999756 1.08577C0.999756 0.93035 1.0615 0.781295 1.1714 0.671396C1.28129 0.561497 1.43035 0.499756 1.58577 0.499756C1.74119 0.499756 1.89025 0.561497 2.00015 0.671396L12.8283 11.4995C12.9102 11.5815 12.9661 11.6859 12.9887 11.7996C13.0113 11.9132 12.9997 12.0311 12.9553 12.1381C12.911 12.2452 12.8359 12.3367 12.7395 12.4011C12.6431 12.4655 12.5298 12.4999 12.4139 12.4998Z" fill="#253746" stroke="#253746" stroke-width="0.5"/>
 					</svg>
 				</button>
-				<video controls class="modal-review-video__video" src="${videoSrc}"/>
+				${videoVKSrc ? `<iframe src="${videoVKSrc}" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"  class="modal-review-video__video" frameborder="0" allowfullscreen></iframe>` : `<video controls class="modal-review-video__video" src="${videoSrc}"/>`}
 			`
 			closeAllModals()
 			modalContainerWrapper.appendChild(modalReview)

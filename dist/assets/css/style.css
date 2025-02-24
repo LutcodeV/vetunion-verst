@@ -1796,6 +1796,18 @@ section + section {
   max-width: 227px;
 }
 
+.doctors--about .doctors__button {
+  margin-left: auto;
+}
+
+.doctors--about .doctors__button--mobile {
+  display: none;
+}
+
+.doctors--about .swiper-arrow {
+  display: none !important;
+}
+
 .doctor {
   border: 1px solid #E9EBED;
   border-radius: 32px;
@@ -2466,6 +2478,7 @@ section + section {
   width: 100%;
   border-radius: 16px;
   overflow: hidden;
+  min-height: 400px;
 }
 
 .footer {
@@ -4606,6 +4619,27 @@ section + section {
     order: 1;
     margin: 32px auto 0;
     max-width: 400px;
+  }
+
+  .doctors--about .swiper-arrow {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    margin-left: 8px;
+  }
+
+  .doctors--about .swiper-arrow:not(:last-child) {
+    margin-left: auto;
+  }
+
+  .doctors--about .doctors__button {
+    display: none;
+  }
+
+  .doctors--about .doctors__button--mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .doctor {
