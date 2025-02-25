@@ -439,8 +439,8 @@ section + section {
   transition: 0.3s ease;
   cursor: pointer;
   padding-top: clamp(24px, 24px + (40 - 24) * (100vw - 320px) / (1440 - 320), 40px);
-  padding-left: clamp(24px, 24px + (28 - 24) * (100vw - 320px) / (1440 - 320), 28px);
-  padding-right: clamp(24px, 24px + (28 - 24) * (100vw - 320px) / (1440 - 320), 28px);
+  padding-left: clamp(16px, 16px + (28 - 16) * (100vw - 320px) / (1440 - 320), 28px);
+  padding-right: clamp(16px, 16px + (28 - 16) * (100vw - 320px) / (1440 - 320), 28px);
   padding-bottom: 24px;
   border-radius: 32px;
   overflow: hidden;
@@ -542,6 +542,16 @@ section + section {
 
 .gateway-link__button {
   border-radius: 100px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   padding: 28px 0px;
   background: var(--White, #FFF);
   width: 100%;

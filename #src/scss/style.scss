@@ -280,8 +280,8 @@ section {
 	transition: .3s ease;
 	cursor: pointer;
 	@include fluid-property(padding-top, 320, 1440, 24, 40);
-	@include fluid-property(padding-left, 320, 1440, 24, 28);
-	@include fluid-property(padding-right, 320, 1440, 24, 28);
+	@include fluid-property(padding-left, 320, 1440, 16, 28);
+	@include fluid-property(padding-right, 320, 1440, 16, 28);
 	padding-bottom: 24px;
 	border-radius: 32px;
 	overflow: hidden;
@@ -353,8 +353,11 @@ section {
 	&__button {
 		@extend .p2, .p2--semibold;
 		border-radius: 100px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		padding: 28px 0px;
-
 		background: var(--White, #FFF);
 		width: 100%;
 		flex: 1 1 0;
