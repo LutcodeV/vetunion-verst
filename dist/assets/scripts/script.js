@@ -288,10 +288,11 @@ if(videoReview) {
 	videoReview.forEach((item, index) => {
 		const videoSrc = item.dataset.reviewVideo
 		const videoVKSrc = item.dataset.reviewVideoVk
+		const isVerticalVideo = item.dataset.reviewVideoVertical
 
 		item.addEventListener('click', () => {
 			const modalReview = document.createElement('div')
-			modalReview.classList = 'modal-review-video active modal'
+			modalReview.classList = isVerticalVideo ? 'modal-review-video modal-review-video--vertical active modal' : 'modal-review-video active modal'
 			modalReview.innerHTML = `
 				<button class="modal__close">
 					<svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -463,7 +464,34 @@ const formsMethods = {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
 		}
-	}
+	},
+	formCouponForm: (formData) => {
+		try {
+			closeAllModals()
+			openModal(document.querySelector('#successForm'))
+		} catch (e) {
+			closeAllModals()
+			openModal(document.querySelector('#errorForm'))
+		}
+	},
+	formFaqForm: (formData) => {
+		try {
+			closeAllModals()
+			openModal(document.querySelector('#successForm'))
+		} catch (e) {
+			closeAllModals()
+			openModal(document.querySelector('#errorForm'))
+		}
+	},
+	formReviewForm: (formData) => {
+		try {
+			closeAllModals()
+			openModal(document.querySelector('#successForm'))
+		} catch (e) {
+			closeAllModals()
+			openModal(document.querySelector('#errorForm'))
+		}
+	},
 }
 if(forms.length > 0) {
 	forms.forEach((item) =>

@@ -440,7 +440,7 @@
 <path d="M6.56335 3.03661L2.26668 0.859946C2.10207 0.766443 1.916 0.717285 1.72668 0.717285C1.53737 0.717285 1.3513 0.766443 1.18668 0.859946C1.02576 0.969651 0.896631 1.11988 0.812351 1.29547C0.72807 1.47105 0.691621 1.66577 0.706684 1.85995V6.18661C0.692304 6.38071 0.729057 6.57519 0.813279 6.75065C0.897501 6.92611 1.02625 7.07643 1.18668 7.18661C1.33545 7.27625 1.50635 7.32244 1.68002 7.31995C1.8846 7.31645 2.08553 7.26508 2.26668 7.16995L6.56335 4.99995C7.20002 4.66661 7.29335 4.25328 7.29335 4.02661C7.29335 3.79995 7.20002 3.35995 6.56335 3.03661ZM6.26002 4.38995L1.96668 6.56661C1.90337 6.60853 1.83066 6.63412 1.75505 6.6411C1.67943 6.64808 1.60327 6.63623 1.53335 6.60661C1.4742 6.55516 1.42865 6.48992 1.40074 6.41665C1.37283 6.34339 1.36343 6.26438 1.37335 6.18661V1.83328C1.36343 1.75551 1.37283 1.6765 1.40074 1.60324C1.42865 1.52998 1.4742 1.46473 1.53335 1.41328C1.57419 1.39048 1.61993 1.3779 1.66668 1.37661C1.76716 1.38063 1.86532 1.40802 1.95335 1.45661L6.26002 3.63328C6.48668 3.74661 6.62668 3.89328 6.62668 4.00995C6.62668 4.12661 6.48668 4.27328 6.26002 4.38995Z" fill="white" stroke="white" stroke-width="0.5"/>
 </svg>
           </button>
-          <button class="widget-consultation__video-button button" data-modal-open="orderToReceptionForm">Записаться на прием</button>
+          <button class="widget-consultation__video-button button" data-modal-open="orderToReceptionForm">Записаться</button>
         </div>
         <div class="widget-consultation__aside">
           <button class="widget-consultation__open widget-consultation__button"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -501,8 +501,7 @@
 <path d="M12.4139 12.4998C12.3369 12.4999 12.2607 12.4848 12.1896 12.4554C12.1185 12.426 12.0539 12.3828 11.9995 12.3283L1.1714 1.50015C1.0615 1.39025 0.999756 1.24119 0.999756 1.08577C0.999756 0.93035 1.0615 0.781295 1.1714 0.671396C1.28129 0.561497 1.43035 0.499756 1.58577 0.499756C1.74119 0.499756 1.89025 0.561497 2.00015 0.671396L12.8283 11.4995C12.9102 11.5815 12.9661 11.6859 12.9887 11.7996C13.0113 11.9132 12.9997 12.0311 12.9553 12.1381C12.911 12.2452 12.8359 12.3367 12.7395 12.4011C12.6431 12.4655 12.5298 12.4999 12.4139 12.4998Z" fill="#253746" stroke="#253746" stroke-width="0.5"/>
 </svg>
           </button>
-          <p class="modal-registration__title">Онлайн-консультация</p>
-          <p class="modal-registration__text">*Поля обязательные для заполнения</p>
+          <p class="modal-registration__title">Запись на онлайн-консультацию</p>
           <form class="modal-registration__form" id="formOrderToReception">
             <input class="input" type="text" required="required" placeholder="Ваше имя*"/>
             <input class="input" type="tel" required="required" placeholder="Номер телефона*"/>
@@ -533,7 +532,7 @@
 </svg>
           </button>
           <p class="modal-registration__title">Дарим скидку 20% <br> на первый прием ветеринарных специалистов</p>
-          <form class="modal-registration__form">
+          <form class="modal-registration__form" id="formCouponForm">
             <input class="input" type="text" required="required" placeholder="Ваше имя*"/>
             <input class="input" type="email" required="required" placeholder="Email*"/>
             <p class="modal-registration__agreements">Заполняя форму, вы соглашаетесь с <a href="https://vetunion.ru/privacy-policy/" target="_blank">политикой конфиденциальности</a> компании <br><br> <a href="/assets/documents/contract_for_the_provision_of_services.docx" target="_blank">Договор на оказание услуг</a></p>
@@ -548,7 +547,7 @@
           </button>
           <p class="modal-registration__title">Остались вопросы?</p>
           <p class="modal-registration__text">*Поля обязательные для заполнения</p>
-          <form class="modal-registration__form">
+          <form class="modal-registration__form" id="formFaqForm">
             <input class="input" type="text" required="required" placeholder="Ваше имя*"/>
             <input class="input" type="text" required="required" placeholder="Фамилия*"/>
             <input class="input" type="email" required="required" placeholder="Email*"/>
@@ -565,7 +564,7 @@
           </button>
           <p class="modal-registration__title">Оставьте отзыв о нашей клинике</p>
           <p class="modal-registration__text">*Поля обязательные для заполнения</p>
-          <form class="modal-registration__form">
+          <form class="modal-registration__form" id="formReviewForm">
             <div class="modal-registration__row">
               <input class="input" type="text" required="required" placeholder="Ваше имя*"/>
               <input class="input" type="text" required="required" placeholder="Имя питомца*"/>
