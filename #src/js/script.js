@@ -436,12 +436,38 @@ if(searchContainer) {
 
 
 // FORMS
+const SUCCESS_TEXTS = {
+	default: {
+		title: 'Спасибо!',
+		text: 'Мы свяжемся с Вами по указанному номеру телефона'
+	},
+	faq: {
+		title: 'Ваше сообщение отправлено!',
+		text: 'Наши специалисты свяжутся с вами в ближайшее время.'
+	},
+	coupon: {
+		title: 'Промокод отправлен на почту!',
+		text: 'В случае отсутствия электроного купона, проверьте «спам».'
+	},
+	review: {
+		title: 'Ваше сообщение отправлено!',
+		text: 'Наши специалисты свяжутся с вами в ближайшее время.'
+	},
+}
+const openSuccessForm = (title = SUCCESS_TEXTS.default.title, text = SUCCESS_TEXTS.default.text) => {
+	const successForm = document.querySelector('#successForm')
+	const successFormTitle = successForm.querySelector('.modal-registration__title')
+	const successFormText = successForm.querySelector('.modal-registration__text')
+	successFormTitle.innerHTML = title
+	successFormText.innerHTML = text
+	openModal(successForm)
+}
 const forms = document.querySelectorAll('form')
 const formsMethods = {
 	formRegistrationToReception: (formData) => {
 		try {
 			closeAllModals()
-			openModal(document.querySelector('#successForm'))
+			openSuccessForm()
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
@@ -450,7 +476,7 @@ const formsMethods = {
 	formOrderHomeExit: (formData) => {
 		try {
 			closeAllModals()
-			openModal(document.querySelector('#successForm'))
+			openSuccessForm()
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
@@ -459,7 +485,7 @@ const formsMethods = {
 	formOrderToReception: (formData) => {
 		try {
 			closeAllModals()
-			openModal(document.querySelector('#successForm'))
+			openSuccessForm()
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
@@ -468,7 +494,7 @@ const formsMethods = {
 	formCouponForm: (formData) => {
 		try {
 			closeAllModals()
-			openModal(document.querySelector('#successForm'))
+			openSuccessForm(SUCCESS_TEXTS.coupon.title, SUCCESS_TEXTS.coupon.text)
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
@@ -477,7 +503,7 @@ const formsMethods = {
 	formFaqForm: (formData) => {
 		try {
 			closeAllModals()
-			openModal(document.querySelector('#successForm'))
+			openSuccessForm(SUCCESS_TEXTS.faq.title, SUCCESS_TEXTS.faq.text)
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
@@ -486,7 +512,7 @@ const formsMethods = {
 	formReviewForm: (formData) => {
 		try {
 			closeAllModals()
-			openModal(document.querySelector('#successForm'))
+			openSuccessForm(SUCCESS_TEXTS.review.title, SUCCESS_TEXTS.review.text)
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
