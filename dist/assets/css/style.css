@@ -159,14 +159,17 @@ h2 {
 }
 
 .h3,
+.news-item__title,
 .media__title--inner,
 .responsibility__title,
+.history-item__text,
 .history-item__title,
 .faq-item__title,
+.hero__subtitle,
 h3 {
   font-size: 24px;
   font-weight: 600;
-  line-height: 35.2px;
+  line-height: 120%;
   letter-spacing: -0.02em;
 }
 
@@ -189,8 +192,6 @@ h4 {
 
 .p1,
 .search-container__not-found,
-.news-item__title,
-.history-item__text,
 .review__text,
 .benefits-block-item__title,
 .header-menu__phone,
@@ -205,6 +206,7 @@ h4 {
 .search-container__back,
 .search-container__result,
 .modal-review__text,
+.news-item__text,
 .media__text,
 .about-benefit__text,
 .about-benefits__text,
@@ -223,7 +225,6 @@ h4 {
 .benefits-block__list-item,
 .benefits-block__text,
 .hero-slide__price,
-.hero__subtitle,
 .header-menu__link--small,
 .gateway-link__button,
 .gateway-link__subtitle {
@@ -238,7 +239,6 @@ h4 {
 .review__more,
 .address__button,
 .hero-slide__price,
-.hero__subtitle,
 .header-menu__link--small,
 .gateway-link__button {
   line-height: 120%;
@@ -254,7 +254,6 @@ h4 {
 .modal-registration__agreements,
 .modal-registration__text,
 .news-item__date,
-.news-item__text,
 .instruction-right__tag,
 .doctor__address {
   font-size: 14px;
@@ -412,6 +411,29 @@ section + section {
 
 .gateway {
   padding: 52px 0px 28px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0px;
+  flex: 1 1 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.gateway .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0px;
+  flex: 1 1 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .gateway__title {
@@ -429,6 +451,9 @@ section + section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 0px;
+  flex: 1 1 0;
   gap: var(--gap);
 }
 
@@ -445,6 +470,17 @@ section + section {
   border-radius: 32px;
   overflow: hidden;
   position: relative;
+}
+
+.gateway-link__link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  -webkit-transition: 0.3s ease 0.3s;
+  transition: 0.3s ease 0.3s;
+  pointer-events: none;
 }
 
 .gateway-link::before {
@@ -487,6 +523,8 @@ section + section {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  gap: 24px;
+  z-index: 2;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -527,6 +565,8 @@ section + section {
 
 .gateway-link__buttons {
   --gap: 8px;
+  position: relative;
+  z-index: 2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -564,6 +604,11 @@ section + section {
   text-align: center;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+}
+
+.gateway-link:hover .gateway-link__link {
+  pointer-events: all;
+  height: 100%;
 }
 
 .logo {
@@ -1367,6 +1412,7 @@ section + section {
   position: relative;
   padding: 28px;
   border-radius: 32px;
+  height: auto;
   background: #FFF3A9;
   min-width: 285px;
   display: -webkit-box;
@@ -1478,8 +1524,20 @@ section + section {
   text-decoration: line-through;
 }
 
+.hero-slide--yellow {
+  background: #FFF3A9;
+}
+
 .hero-slide--pink {
   background: #FFD2D2;
+}
+
+.hero-slide--violet {
+  background: #DD9FD4;
+}
+
+.hero-slide--blue {
+  background: #CEF5F3;
 }
 
 .hero-slide:has(.hero-slide__link:hover) .hero-slide__img {
@@ -1667,9 +1725,15 @@ section + section {
 
 .services__divider {
   width: 100%;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
   height: 1px;
   border: 0;
   background: #E9EBED;
+}
+
+.services__divider:has(+ .services-link:hover) {
+  opacity: 0;
 }
 
 .services-link {
@@ -1688,6 +1752,13 @@ section + section {
   transition: 0.3s ease;
   border-radius: 20px;
   overflow: hidden;
+}
+
+.services-link span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
 }
 
 .services-link__button {
@@ -2454,6 +2525,7 @@ section + section {
 }
 
 .review__text {
+  font-weight: 400;
   margin-top: 24px;
   -webkit-line-clamp: 10;
   -webkit-box-orient: vertical;
@@ -2716,9 +2788,13 @@ section + section {
   flex-direction: column;
 }
 
+.about-hero__title {
+  margin-top: 60px;
+}
+
 .about-hero__swiper {
   position: relative;
-  margin-top: 32px;
+  margin-top: 64px;
   width: 100%;
   height: 608px;
   border-radius: 32px;
@@ -2812,7 +2888,7 @@ section + section {
 
 .about-benefits__text {
   margin-top: 40px;
-  max-width: 563px;
+  max-width: 340px;
 }
 
 .about-benefits-left {
@@ -2850,12 +2926,16 @@ section + section {
   transition: 0.3s ease;
   max-width: 100%;
   height: auto;
-  gap: 16px;
+  gap: 80px;
   margin: 0 !important;
 }
 
+.about-benefit__title {
+  max-width: 240px;
+}
+
 .about-benefit__text {
-  margin-top: 64px;
+  margin-top: auto;
 }
 
 .about-benefit__button {
@@ -3211,6 +3291,7 @@ section + section {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 0px;
   flex: 1 1 0;
+  height: 100%;
   height: auto;
   max-height: 160px;
 }
@@ -3228,12 +3309,21 @@ section + section {
   flex: 1 1 0;
 }
 
+.news-item__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 * + .news-item__title {
   margin-top: 24px;
 }
 
 .news-item__text {
   margin-top: 16px;
+  margin-bottom: 40px;
 }
 
 .news-item__date {
@@ -3539,6 +3629,10 @@ section + section {
 
 .modal-registration--coupon {
   background: #DD9FD4;
+}
+
+.modal-registration--coupon .button {
+  border: 1px solid #fff;
 }
 
 .input {
@@ -4075,8 +4169,13 @@ section + section {
     max-width: var(--COL-6);
   }
 
+  .news-item:first-child .news-item__title {
+    display: block;
+  }
+
   .news-item:first-child .news-item__img {
-    max-height: 350px;
+    max-width: calc(50% - 12px);
+    max-height: 100%;
   }
 }
 
@@ -4377,10 +4476,13 @@ section + section {
   }
 
   .h3,
+  .news-item__title,
   .media__title--inner,
   .responsibility__title,
+  .history-item__text,
   .history-item__title,
   .faq-item__title,
+  .hero__subtitle,
   h3 {
     font-size: 20px;
     line-height: 120%;
@@ -4405,6 +4507,7 @@ section + section {
   .search-container__back,
   .search-container__result,
   .modal-review__text,
+  .news-item__text,
   .media__text,
   .about-benefit__text,
   .about-benefits__text,
@@ -4423,7 +4526,6 @@ section + section {
   .benefits-block__list-item,
   .benefits-block__text,
   .hero-slide__price,
-  .hero__subtitle,
   .header-menu__link--small,
   .gateway-link__button,
   .gateway-link__subtitle {
@@ -4435,7 +4537,14 @@ section + section {
     margin-top: 80px;
   }
 
+  .gateway-link--hover .gateway-link__buttons,
+  .gateway__row .gateway-link:nth-child(2):hover .gateway-link__buttons,
+  .gateway__row .gateway-link:nth-child(1):hover .gateway-link__buttons {
+    margin-top: auto;
+  }
+
   .gateway {
+    height: 100%;
     padding: 8px 0;
   }
 
@@ -4452,6 +4561,27 @@ section + section {
     margin-top: 8px;
   }
 
+  .gateway-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 0px;
+    flex: 1 1 0;
+  }
+
+  .gateway-link__buttons {
+    margin-top: auto;
+  }
+
+  .gateway-link__title {
+    max-width: 300px;
+  }
+
   .gateway-link__button {
     height: 56px;
     padding: 0;
@@ -4459,6 +4589,10 @@ section + section {
 
   .gateway-link__arrow {
     position: static;
+  }
+
+  .gateway-link:last-child .gateway-link__title {
+    max-width: 230px;
   }
 
   .logo {
@@ -4487,6 +4621,10 @@ section + section {
 
   .search__container {
     width: 505px;
+  }
+
+  .hero__subtitle {
+    margin-left: 16px;
   }
 
   .hero__col {
@@ -4563,9 +4701,20 @@ section + section {
     gap: 40px;
   }
 
+  .benefits-block:first-child .benefits-block__title {
+    padding-right: 100px;
+  }
+
+  .benefits-block:first-child .benefits-block__text {
+    padding-right: 50px;
+  }
+
   .benefits-block__col {
     max-width: 100% !important;
     width: 100%;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
 
   .benefits-block__text,
@@ -4890,6 +5039,7 @@ section + section {
     font-weight: 600;
     font-size: 24px;
     line-height: 26.4px;
+    margin-top: 40px;
     letter-spacing: -2%;
   }
 
@@ -5258,6 +5408,10 @@ section + section {
 
   .services-link:hover {
     background: var(--PINK);
+  }
+
+  .services-link:hover + .services__divider {
+    opacity: 0;
   }
 
   .services-link:hover > svg {
