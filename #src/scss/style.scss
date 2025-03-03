@@ -351,6 +351,7 @@ section {
 		display: flex;
 		position: relative;
 		gap: 24px;
+		pointer-events: none;
 		z-index: 2;
 		justify-content: space-between;
 	}
@@ -437,7 +438,14 @@ section {
 			padding: 0;
 		}
 		&__arrow {
-			position: static;
+			position: absolute;
+		}
+		&:first-child {
+			.gateway-link {
+				&__title {
+					max-width: 290px;
+				}
+			}
 		}
 		&:last-child {
 			.gateway-link {
@@ -462,6 +470,8 @@ section {
 		align-items: center;
 		justify-content: center;
 		.logo-svg {
+			width: 32px;
+			height: 32px;
 			display: none;
 		}
 	}
@@ -2765,7 +2775,7 @@ section {
 	margin: 0 !important;
 	&__title {
 		@extend .h4;
-		max-width: 240px;
+		max-width: 200px;
 	}
 	&__text {
 		@extend .p2;
@@ -2874,6 +2884,7 @@ section {
 	}
 	&__text {
 		@extend .h3;
+		max-width: 290px;
 	}
 	&:last-child {
 		.history-item__divider::after {
