@@ -3550,6 +3550,19 @@ section {
 	flex-direction: column;
 	gap: 8px;
 	align-items: flex-end;
+	animation: widgetAnimation .5s ease 5s both;
+	@include r(768px) {
+		right: 0;
+		bottom: 0;
+	}
+}
+@keyframes widgetAnimation {
+	0% {
+		transform: translateX(calc(100% + 28px));
+	}
+	100% {
+		transform: translateY(0px);
+	}
 }
 .widget-coupon {
 	width: 64px;

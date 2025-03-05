@@ -368,6 +368,9 @@ const initWidgetConsultation = () => {
 
 	if(window.innerWidth > 768) {
 		this.open.click()
+		setTimeout(() => {
+			this.videoButtonPlay.click()
+		}, 5000)
 	}
 }
 if(widgetConsultation) {
