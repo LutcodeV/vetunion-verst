@@ -365,6 +365,10 @@ const initWidgetConsultation = () => {
 		}
 		widgetConsultation.classList.toggle('play')
 	})
+
+	if(window.innerWidth > 768) {
+		this.open.click()
+	}
 }
 if(widgetConsultation) {
 	initWidgetConsultation()
