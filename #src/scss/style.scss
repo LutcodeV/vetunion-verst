@@ -426,6 +426,7 @@ section {
 	@include r(768px) {
 		display: flex;
 		flex-direction: column;
+		transition: .3s ease;
 		flex: 1 1 0;
 		&__buttons {
 			margin-top: auto;
@@ -440,6 +441,9 @@ section {
 		&__arrow {
 			position: absolute;
 		}
+		&__header {
+			margin-bottom: 24px;
+		}
 		&:first-child {
 			.gateway-link {
 				&__title {
@@ -453,6 +457,12 @@ section {
 					max-width: 230px;
 				}
 			}
+		}
+		&:first-child:hover {
+			flex: 2 1 0;
+		}
+		&:last-child:hover {
+			flex: 2 1 0;
 		}
 	}
 }
@@ -1502,6 +1512,13 @@ section {
 			&:last-child {
 				left: 40px;
 				top: 50px;
+			}
+		}
+	}
+	@include r(425px) {
+		&__text {
+			br {
+				display: none;
 			}
 		}
 	}
@@ -2580,6 +2597,9 @@ section {
 	@include r(768px) {
 		margin-top: 80px;
 		padding: 64px 0px;
+		&__up {
+			margin-right: 40px;
+		}
 		&__links {
 			display: grid;
 			grid-template-columns: auto 106px;
@@ -3553,7 +3573,7 @@ section {
 	animation: widgetAnimation .5s ease 5s both;
 	@include r(768px) {
 		right: 0;
-		bottom: 0;
+		bottom: 16px;
 	}
 }
 @keyframes widgetAnimation {

@@ -339,7 +339,10 @@ const initWidgetConsultation = () => {
 	this.open.addEventListener('click', () => {
 		widgetConsultation.classList.toggle('active')
 		if(widgetConsultation.classList.contains('play')) {
-			this.video.pause()
+			this.videoButtonPlay.click()
+		}
+		else if(!widgetConsultation.classList.contains('play') && window.innerWidth < 768) {
+			this.videoButtonPlay.click()
 		}
 	})
 	this.muted.addEventListener('click', () => {
@@ -349,10 +352,11 @@ const initWidgetConsultation = () => {
 	this.videoButtonPlay.addEventListener('click', () => {
 		if(widgetConsultation.classList.contains('play')) {
 			this.video.pause()
-		} else {
+			widgetConsultation.classList.remove('play')
+		} else if (widgetConsultation.classList.contains('active')) {
 			this.video.play()
+			widgetConsultation.classList.add('play')
 		}
-		widgetConsultation.classList.toggle('play')
 	})
 	this.video.addEventListener('ended', () => {
 		widgetConsultation.classList.remove('play')
@@ -376,6 +380,12 @@ const initWidgetConsultation = () => {
 if(widgetConsultation) {
 	initWidgetConsultation()
 }
+const widgetCoupon = document.querySelector('.widget-coupon')
+if(widgetCoupon) {
+	if(localStorage.getItem('couponRequested') === 'true') {
+		widgetCoupon.remove()
+	}
+}
 
 
 // SEARCH
@@ -391,6 +401,13 @@ const MOCK_DATA = [
 	{title: 'Консультация врача терапевта без приема животного онлайн/оффлайн', link: '#'},
 	{title: 'Консультация врача терапевта без приема животного онлайн/оффлайн', link: '#'},
 ]
+function debounce(func, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+}
 if(searchContainer) {
 	const searchContainerResults = document.querySelector('.search-container__results')
 	const searchContainerInput = document.querySelector('.search-container-input__field')
@@ -415,32 +432,40 @@ if(searchContainer) {
 		headerMenu.classList.add('active')
 	})
 
-	searchContainerInput.addEventListener('input', (e) => {
-		const value = e.target.value
-		searchContainerNotFound.style.display = 'none'
-		searchContainerAllResults.style.display = 'none'
-		const filteredData = MOCK_DATA.filter((item) => item.title.toLowerCase().includes(value.toLowerCase()))
-		searchContainerResults.innerHTML = ''
-		if(filteredData.length === 0) {
-			searchContainerNotFound.style.display = 'block'
-			searchContainerResults.style.display = 'none'
-			searchContainerNotFound.textContent = `Нет результатов по запросу "${value}"`
-			return
-		}
-		searchContainerResults.style.display = 'flex'
-		filteredData.forEach((item) => {
-			const link = document.createElement('a')
-			link.href = item.link
-			link.textContent = item.title
-			link.classList.add('search-container__result')
-			searchContainerResults.appendChild(link)
-		})
-		if(searchContainerResults.clientWidth > searchContainerRow.clientWidth - 136) {
-			searchContainerAllResults.style.display = 'flex'
-		}
-	})
+	searchContainerInput.addEventListener('input', debounce((e) => {
+			const value = e.target.value
+			//! if(Тут pending должен быть) {
+			//! 	searchContainerNotFound.style.display = 'block'
+			//! 	searchContainerResults.style.display = 'none'
+			//! 	searchContainerNotFound.textContent = `Идет поиск...`
+			//! 	return
+			//! }
+			searchContainerNotFound.style.display = 'none'
+			searchContainerAllResults.style.display = 'none'
+			//! Можно отключить фильтрацию
+			const filteredData = MOCK_DATA.filter((item) => item.title.toLowerCase().includes(value.toLowerCase()))
+			searchContainerResults.innerHTML = ''
+			//! Если фильтрация отключена, проверяй по длине приходящего массива
+			if(filteredData.length === 0) {
+				searchContainerNotFound.style.display = 'block'
+				searchContainerResults.style.display = 'none'
+				searchContainerNotFound.textContent = `Нет результатов по запросу "${value}"`
+				return
+			}
+			searchContainerResults.style.display = 'flex'
+			filteredData.forEach((item) => {
+				const link = document.createElement('a')
+				link.href = item.link
+				link.textContent = item.title
+				link.classList.add('search-container__result')
+				searchContainerResults.appendChild(link)
+			})
+			if(searchContainerResults.clientWidth > searchContainerRow.clientWidth - 136) {
+				searchContainerAllResults.style.display = 'flex'
+			}
+		}, 300)
+	)
 }
-
 
 // FORMS
 const SUCCESS_TEXTS = {
@@ -502,6 +527,10 @@ const formsMethods = {
 		try {
 			closeAllModals()
 			openSuccessForm(SUCCESS_TEXTS.coupon.title, SUCCESS_TEXTS.coupon.text)
+			localStorage.setItem('couponRequested', 'true')
+			if(widgetCoupon) {
+				widgetCoupon.remove()
+			}
 		} catch (e) {
 			closeAllModals()
 			openModal(document.querySelector('#errorForm'))
