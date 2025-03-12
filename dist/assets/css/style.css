@@ -1925,6 +1925,8 @@ section + section {
 
 .doctor__video-button {
   position: absolute;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
   top: 50%;
   z-index: 1;
   left: 50%;
@@ -1985,6 +1987,11 @@ section + section {
 
 .doctor__address + .doctor__address {
   margin-top: 8px;
+}
+
+.doctor__img-wrapper--video.active .doctor__video-button {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .instruction {

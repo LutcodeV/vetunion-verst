@@ -1787,6 +1787,7 @@ section {
 	}
 	&__video-button {
 		position: absolute;
+		transition: .3s ease;
 		top: 50%;
 		z-index: 1;
 		left: 50%;
@@ -1829,6 +1830,14 @@ section {
 		}
 		&+& {
 			margin-top: 8px;
+		}
+	}
+	&__img-wrapper--video {
+		&.active {
+			.doctor__video-button {
+				opacity: 0;
+				pointer-events: none;
+			}
 		}
 	}
 	@include r(768px) {

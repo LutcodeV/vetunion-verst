@@ -569,3 +569,29 @@ if(forms.length > 0) {
 		})
 	)
 }
+
+// DOCTOR-VIDEO
+const doctorsVideoWrapper = document.querySelectorAll('.doctor__img-wrapper--video')
+if(doctorsVideoWrapper.length) {
+	doctorsVideoWrapper.forEach((item) => {
+		const video = item.querySelector('.doctor__img')
+		item.addEventListener('click', () => {
+			if(video.paused) {
+				video.play()
+			} else {
+				video.pause()
+			}
+		})
+		video.addEventListener('pause', () => {
+			item.classList.remove('active')
+		})
+		video.addEventListener('play', () => {
+			item.classList.add('active')
+		})
+		video.addEventListener('ended', () => {
+			video.pause()
+			video.currentTime = 0
+			item.classList.remove('active')
+		})
+	})
+}
