@@ -4889,6 +4889,8 @@ section + section {
   .doctor__img-wrapper {
     max-width: 100%;
     height: 240px;
+    min-height: 240px;
+    max-height: 240px;
   }
 
   .doctor__video-button {
