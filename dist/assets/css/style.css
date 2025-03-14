@@ -225,6 +225,7 @@ h4 {
 .benefits-block__list-item,
 .benefits-block__text,
 .hero-slide__price,
+.hero-slide__subtitle,
 .header-menu__link--small,
 .gateway-link__button,
 .gateway-link__subtitle {
@@ -287,8 +288,7 @@ h4 {
   letter-spacing: -0.36px;
 }
 
-.text,
-.hero-slide__subtitle {
+.text {
   font-size: 12px;
   font-weight: 500;
   line-height: 140%;
@@ -4562,6 +4562,7 @@ section + section {
   .benefits-block__list-item,
   .benefits-block__text,
   .hero-slide__price,
+  .hero-slide__subtitle,
   .header-menu__link--small,
   .gateway-link__button,
   .gateway-link__subtitle {

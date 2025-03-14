@@ -1287,7 +1287,7 @@ section {
 		@extend .h4;
 	}
 	&__subtitle {
-		@extend .text;
+		@extend .p2;
 		margin-top: 8px;
 		opacity: 0;
 		transition: .3s ease;
