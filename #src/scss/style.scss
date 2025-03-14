@@ -3875,3 +3875,9 @@ section {
 		}
 	}
 }
+
+@supports (-webkit-touch-callout: none) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}

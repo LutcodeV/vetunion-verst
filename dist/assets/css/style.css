@@ -4199,6 +4199,12 @@ section + section {
   opacity: 0.3;
 }
 
+@supports (-webkit-touch-callout: none) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
 @media screen and (min-width: 1260px) {
   .news-item:first-child {
     -webkit-box-orient: horizontal;
