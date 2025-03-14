@@ -79,6 +79,24 @@ if(benefitsBlock && window.innerWidth > 1024) {
 			}
 		)
 	})
+} else if (benefitsBlock && window.innerWidth <= 1024) {
+	const benefitsGSAP = gsap.timeline({
+		scrollTrigger: {
+			trigger: ".benefits__blocks",
+			start: "top-=88px top",
+			end: "bottom+=200% bottom",
+			scrub: true,
+			pin: true,
+		},
+	})
+
+	benefitsBlock.forEach((item, index) => {
+		benefitsGSAP.fromTo(item, {y: `${index * 200}%`},
+			{y: `${index * 30}px`,
+				onEnter: () => { benefitsBlock[index - 1]?.classList.add('prev')}
+			}
+		)
+	})
 }
 // BENEFITS-SWIPER
 const benefitsSwiper = new Swiper('.benefits-swiper', {

@@ -1401,13 +1401,6 @@ section {
 		margin-top: 44px;
 		position: relative;
 	}
-	@include r(1024px) {
-		&__blocks {
-			display: flex;
-			flex-direction: column;
-			gap: 16px;
-		}
-	}
 	@include r(768px) {
 		padding-top: 80px;
 		&__title {
@@ -1482,7 +1475,10 @@ section {
 		background: #FFF3A9;
 	}
 	@include r(1024px) {
-		position: static;
+		height: 552px;
+		max-width: 552px;
+		min-height: 552px;
+		gap: 0 !important;
 	}
 	@include r(768px) {
 		flex-direction: column;
