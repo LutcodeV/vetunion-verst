@@ -1475,7 +1475,7 @@ section {
 		background: #FFF3A9;
 	}
 	@include r(1024px) {
-		height: 552px;
+		// height: 552px;
 		// max-width: 552px;
 		min-height: 552px;
 		gap: 15px !important;
