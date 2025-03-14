@@ -1476,7 +1476,7 @@ section {
 	}
 	@include r(1024px) {
 		height: 552px;
-		max-width: 552px;
+		// max-width: 552px;
 		min-height: 552px;
 		gap: 15px !important;
 	}

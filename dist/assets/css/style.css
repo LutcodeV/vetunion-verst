@@ -4413,7 +4413,6 @@ section + section {
 
   .benefits-block {
     height: 552px;
-    max-width: 552px;
     min-height: 552px;
     gap: 15px !important;
   }
