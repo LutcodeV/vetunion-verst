@@ -1478,7 +1478,7 @@ section {
 		height: 552px;
 		max-width: 552px;
 		min-height: 552px;
-		gap: 0 !important;
+		gap: 15px !important;
 	}
 	@include r(768px) {
 		flex-direction: column;
