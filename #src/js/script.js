@@ -84,7 +84,7 @@ if(benefitsBlock && window.innerWidth > 1024) {
 		scrollTrigger: {
 			trigger: ".benefits__blocks",
 			start: "top-=88px top",
-			end: "bottom+=500% bottom",
+			end: "bottom+=200% bottom",
 			scrub: true,
 			pin: true,
 		},

@@ -1618,7 +1618,7 @@ section + section {
   top: -40px;
 }
 
-.benefits-block__mark:last-child {
+.benefits-block__mark-picture:last-child {
   position: absolute;
   left: 80px;
   top: 80px;
@@ -1913,12 +1913,23 @@ section + section {
 .doctor__img-wrapper {
   position: relative;
   max-width: 50%;
+  overflow: hidden;
+  border-radius: 16px 0 0 16px;
 }
 
 .doctor__img {
   border-radius: 16px 0 0 16px;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.doctor__img-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
 }
@@ -1992,6 +2003,10 @@ section + section {
 .doctor__img-wrapper--video.active .doctor__video-button {
   opacity: 0;
   pointer-events: none;
+}
+
+.doctor__img-wrapper--video.active .doctor__img-poster {
+  display: none;
 }
 
 .instruction {
@@ -4765,7 +4780,7 @@ section + section {
   }
 
   .benefits-block:first-child .benefits-block__text {
-    padding-right: 50px;
+    padding-right: 140px;
   }
 
   .benefits-block__col {
@@ -4782,16 +4797,20 @@ section + section {
   }
 
   .benefits-block__marks {
-    right: 20px;
+    top: -50px;
+    right: -26px;
+    z-index: 1;
   }
 
-  .benefits-block__mark {
-    width: 90px;
+  .benefits-block__mark-picture {
+    top: 0;
+    right: 0;
   }
 
-  .benefits-block__mark:last-child {
-    left: 40px;
-    top: 50px;
+  .benefits-block__mark-picture:last-child {
+    left: auto;
+    top: 65px;
+    right: 45px;
   }
 
   .benefits-block-item {
@@ -4888,6 +4907,7 @@ section + section {
     height: 240px;
     min-height: 240px;
     max-height: 240px;
+    border-radius: 16px 16px 0 0;
   }
 
   .doctor__video-button {
