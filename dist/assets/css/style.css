@@ -1454,6 +1454,7 @@ section + section {
   display: -ms-flexbox;
   display: flex;
   gap: 16px;
+  margin-bottom: 160px;
 }
 
 .hero-slide__subtitle {
@@ -1509,7 +1510,7 @@ section + section {
 }
 
 .hero-slide__price {
-  margin-top: 160px;
+  margin-top: auto;
   padding: 12px 16px;
   background: var(--WHITE);
   display: -webkit-box;
@@ -4728,6 +4729,10 @@ section + section {
   .hero-slide {
     height: 263px;
     width: 285px;
+  }
+
+  .hero-slide__header {
+    margin-bottom: 0px;
   }
 
   .hero-slide__price {

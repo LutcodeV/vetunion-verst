@@ -1282,6 +1282,7 @@ section {
 	&__header {
 		display: flex;
 		gap: 16px;
+		margin-bottom: 160px;
 	}
 	&__title {
 		@extend .h4;
@@ -1324,7 +1325,7 @@ section {
 	}
 	&__price {
 		@extend .p2, .p2--semibold;
-		margin-top: 160px;
+		margin-top: auto;
 		padding: 12px 16px;
 		background: var(--WHITE);
 		display: flex;
@@ -1366,6 +1367,9 @@ section {
 	@include r(768px) {
 		height: 263px;
 		width: 285px;
+		&__header {
+			margin-bottom: 0px;
+		}
 		&__price {
 			margin-top: auto;
 		}
