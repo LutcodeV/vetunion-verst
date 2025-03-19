@@ -1,0 +1,80 @@
+@use "mixins" as *;
+@forward "typography";
+
+.cx-banner {
+	.container {
+		max-width: 1132px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0px 16px;
+	}
+	&__row {
+		border-radius: 16px;
+		background: #FFFCEC;
+		position: relative;
+		width: 100%;
+		display: flex;
+		padding: 40px;
+		gap: 24px;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+	}
+	&__column {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	&__img {
+		margin-bottom: -40px;
+		max-width: 250px;
+		width: 100%;
+	}
+	&__title {
+		font-weight: 500;
+		font-size: 28px;
+		line-height: 100%;
+		letter-spacing: 0%;
+	}
+	&__text {
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 100%;
+		letter-spacing: 0%;
+	}
+	&__button {
+		color: #fff;
+		font-weight: 600;
+		font-size: 20px;
+		line-height: 100%;
+		letter-spacing: 0%;
+		padding: 23px 32px;
+		border-radius: 100px;
+		background: #253746;
+	}
+	@include r(1024px) {
+		&__row {
+			padding: 40px 24px;
+		}
+		&__title {
+			font-size: 20px;
+		}
+		&__text {
+			font-size: 16px;
+		}
+	}
+	@include r(902px) {
+		padding-top: 164px;
+		&__row {
+			padding: 24px 16px 48px;
+		}
+		&__img {
+			position: absolute;
+			bottom: 100%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			margin: 0;
+			max-width: 267px;
+		}
+	}
+}
