@@ -139,8 +139,14 @@ b {
   line-height: 100%;
   letter-spacing: 0%;
   padding: 23px 32px;
+  -webkit-transition: 0.24s;
+  transition: 0.24s;
   border-radius: 100px;
   background: #253746;
+}
+
+.cx-banner__button:hover {
+  background: #dd9fd4;
 }
 
 @media screen and (max-width: 1024px) {

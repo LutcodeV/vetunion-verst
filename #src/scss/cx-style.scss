@@ -49,8 +49,12 @@
 		line-height: 100%;
 		letter-spacing: 0%;
 		padding: 23px 32px;
+		transition: .24s;
 		border-radius: 100px;
 		background: #253746;
+		&:hover {
+			background: #dd9fd4;
+		}
 	}
 	@include r(1024px) {
 		&__row {
